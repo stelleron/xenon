@@ -21,7 +21,7 @@ class UntitledGame : public Application{
     }
 
     void render(Context& ctx) {
-
+        LOG(ctx.timer.fps());
     }
 
     void finish() {

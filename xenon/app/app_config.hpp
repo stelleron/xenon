@@ -20,6 +20,7 @@
             bool decorated;
             bool focused;
             bool halt_while_hidden; // Set whether the app will pause while hidden
+            bool vsync;
 
             // Framerate cap
             int fps_cap;

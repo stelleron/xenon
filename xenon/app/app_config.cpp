@@ -14,6 +14,7 @@ namespace xenon {
         maximized = false;
         focused = true;
         halt_while_hidden = true;
+        vsync = true;
 
         fps_cap = 60;
         opacity = 1.0f;

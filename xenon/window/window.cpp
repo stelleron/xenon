@@ -64,6 +64,9 @@ namespace xenon {
 
         // And opacity
         SDL_SetWindowOpacity(window, config.opacity);
+
+        // Finally sent vsync
+        if (config.vsync) SDL_GL_SetSwapInterval(1);
     } 
 
     void Window::poll_events() {
