@@ -148,6 +148,6 @@ namespace xenon {
     }
 
     bool Font::is_loaded() {
-        return true;
+        return fontTex.is_loaded();
     }
 }

@@ -12,12 +12,20 @@ namespace xenon {
     }
 
     Surface::~Surface() {
-        if (id) {
+        unload();
+    }
+
+    void Surface::unload() {
+        if (is_loaded()) {
             glDeleteTextures(1, &id);
         }
+        id = 0;
     }
 
     void Surface::load(int width, int height) {
+        // First unload existing data in advance
+        unload();
+
         // First create a framebuffer
         glGenFramebuffers(1, &id);
         glBindFramebuffer(GL_FRAMEBUFFER, id);

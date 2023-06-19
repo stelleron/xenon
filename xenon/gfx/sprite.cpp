@@ -15,9 +15,7 @@ namespace xenon {
         id = 0;
     }
     Texture::~Texture() {
-        if (id) {
-            glDeleteTextures(1, &id);
-        }
+        unload();
     }
     Texture::Texture(const char* path) {
         load(path);
@@ -40,6 +38,9 @@ namespace xenon {
         load(image);
     }
     void Texture::load(int width, int height) {
+        // First unload existing data before hand
+        unload();
+        
         glGenTextures(1, &id);
         glBindTexture(GL_TEXTURE_2D, id);
         // Default texture params
@@ -60,6 +61,9 @@ namespace xenon {
         this->height = height;
     }
     void Texture::load(const Image& image) {
+        // First unload existing data before hand
+        unload();
+
         glGenTextures(1, &id);
         glBindTexture(GL_TEXTURE_2D, id);
         // Default texture params
@@ -106,6 +110,13 @@ namespace xenon {
         else {
             return false;
         }
+    }
+
+    void Texture::unload() {
+        if (is_loaded()) {
+            glDeleteTextures(1, &id);
+        }
+        id = 0;
     }
 
     Sprite::Sprite() {

@@ -43,7 +43,6 @@ namespace xenon {
         ctx.renderer.lock();    
         shader.load(0, 0);
 
-        LOG("Xenon: Initialising the application!");
         app.init(ctx);
 
          // 2. UPDATE

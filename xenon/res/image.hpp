@@ -24,6 +24,7 @@
 
             void load(const char* path);
             void load(unsigned char* data, size_t size);
+            void unload();
             bool is_loaded(); // Check if the image has been loaded
         };
     }

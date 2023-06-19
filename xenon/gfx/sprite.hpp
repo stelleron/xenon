@@ -36,6 +36,7 @@
             void load(unsigned char* data, size_t size);
             void load(const Image& image);
             void load(int width, int height);
+            void unload();
 
             bool is_loaded();
         };
@@ -58,7 +59,7 @@
                 void load(const char* path);
                 void load(unsigned char* data, size_t size);
                 void load(const Image& image);
-
+                
                 bool is_loaded();
 
                 // Get the texture pointer

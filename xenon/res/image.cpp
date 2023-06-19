@@ -18,17 +18,19 @@ namespace xenon {
     }
 
     Image::~Image() {
-        if (data)
-            stbi_image_free(data);
+        unload();
     }
 
     void Image::load(const char* path) {
         size_t fsize;
-        unsigned char* data = filesystem::load_file_data(path, fsize);
-        load(data, fsize);
+        unsigned char* fdata = filesystem::load_file_data(path, fsize);
+        load(fdata, fsize);
     }
 
     void Image::load(unsigned char* data, size_t size) {
+        // First unload existing data
+        unload();
+        
         stbi_set_flip_vertically_on_load(0);
         int colorChannels;
         this->data = stbi_load_from_memory(data, size, &width, &height, &colorChannels, 0);
@@ -39,6 +41,12 @@ namespace xenon {
             case 4: format = RGBA; break;
             default: break;
         }
+    }
+
+    void Image::unload() {
+        if (is_loaded())
+            stbi_image_free(data);
+        data = nullptr;
     }
 
     bool Image::is_loaded() {

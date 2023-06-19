@@ -18,6 +18,8 @@
             ~Surface();
 
             void load(int width, int height);
+            void unload();
+            
             bool is_loaded();
         };
     }

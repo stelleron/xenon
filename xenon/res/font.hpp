@@ -27,6 +27,7 @@
 
                 void load(const char* path, int fontsize = DEFAULT_FONT_SIZE);
                 void load(unsigned char* data, size_t size, int fontsize = DEFAULT_FONT_SIZE);
+                void unload();
                 bool is_loaded(); // Check if the font has been loaded
         };
     }
