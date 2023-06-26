@@ -21,7 +21,7 @@ class UntitledGame : public Application{
     }
 
     void render(Context& ctx) {
-        ctx.renderer.print(font, "Hello World!", {20.0, 20.0}, {1.0, 1.0}, GREEN, 0);
+        ctx.renderer.print(font, "Hello World!", {0.0, 20.0}, {1.0, 1.0}, GREEN, 0);
     }
 
     void finish() {
