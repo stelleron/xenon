@@ -542,26 +542,26 @@ namespace xenon {
 
         for (int x = 0; x < message.length(); x++) {
             if (message[x] == '\n') {
-                yOffset = (int)(font.get_size() * 1.5f * scale.x);
+                yOffset = (int)(font.get_size() * 1.0f * scale.y);
                 xOffset = 0;
             }
-
-            RenderMode rmode = rBatch.vertexArray.get_render_type();
-            if (rmode == Quads && rBatch.vertexArray.check_space(rBatch.vertexPointer, 4) && currentTextureID == font.fontTex.id) { 
-                rBatch.add(font.fontTex, {pos.x + xOffset + font.glyphs[(int)message[x] - START_CHAR].xOffset , pos.y + yOffset + font.glyphs[(int)message[x] - START_CHAR].yOffset}, scale, 0, color, font.fontRecs[(int)message[x] - START_CHAR]); 
-            } 
-            else { 
-                if (rmode != None) { 
-                    draw(rBatch.vertexArray); 
+            else {
+                RenderMode rmode = rBatch.vertexArray.get_render_type();
+                if (rmode == Quads && rBatch.vertexArray.check_space(rBatch.vertexPointer, 4) && currentTextureID == font.fontTex.id) { 
+                    rBatch.add(font.fontTex, {pos.x + xOffset + font.glyphs[(int)message[x] - START_CHAR].xOffset*scale.x , pos.y + yOffset + font.glyphs[(int)message[x] - START_CHAR].yOffset*scale.y}, scale, 0, color, font.fontRecs[(int)message[x] - START_CHAR]); 
                 } 
-                currentTextureID = font.fontTex.id; 
-                rBatch.vertexArray.reset(Quads, MAX_BATCH_SIZE); 
-                rBatch.vertexPointer = 0; 
-                rBatch.add(font.fontTex, {pos.x + xOffset + font.glyphs[(int)message[x] - START_CHAR].xOffset , pos.y + yOffset + font.glyphs[(int)message[x] - START_CHAR].yOffset}, scale, 0, color, font.fontRecs[(int)message[x] - START_CHAR]);
-            }
-            if (font.glyphs[(int)message[x] - START_CHAR].advance == 0) xOffset += (font.fontRecs[(int)message[x] - START_CHAR].width * scale.x) + spacing;
-            else xOffset += (font.glyphs[(int)message[x] - START_CHAR].advance * scale.x) + spacing; 
-           
+                else { 
+                    if (rmode != None) { 
+                        draw(rBatch.vertexArray); 
+                    } 
+                    currentTextureID = font.fontTex.id; 
+                    rBatch.vertexArray.reset(Quads, MAX_BATCH_SIZE); 
+                    rBatch.vertexPointer = 0; 
+                    rBatch.add(font.fontTex, {pos.x + xOffset + font.glyphs[(int)message[x] - START_CHAR].xOffset*scale.x , pos.y + yOffset + font.glyphs[(int)message[x] - START_CHAR].yOffset*scale.y}, scale, 0, color, font.fontRecs[(int)message[x] - START_CHAR]);
+                }
+                if (font.glyphs[(int)message[x] - START_CHAR].advance == 0) xOffset += (font.fontRecs[(int)message[x] - START_CHAR].width * scale.x) + spacing;
+                else xOffset += (font.glyphs[(int)message[x] - START_CHAR].advance * scale.x) + spacing; 
+            }           
         }
     }
 

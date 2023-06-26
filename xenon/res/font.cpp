@@ -74,6 +74,7 @@ namespace xenon {
                                         &glyphs[index].image.height, 
                                         &glyphs[index].xOffset, 
                                         &glyphs[index].yOffset);
+                glyphs[index].yOffset += (int)((float)ascent*scale);
             }
             else {
                 glyphs[index].image.data = new unsigned char[fontSize * glyphs[index].advance];

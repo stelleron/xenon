@@ -11,7 +11,7 @@ class UntitledGame : public Application{
     }
 
     void init(Context& ctx) {
-        font.load("build/font.ttf");
+        font.load("build/font.ttf", 16);
     }   
 
     void update(Context& ctx) {
@@ -21,7 +21,8 @@ class UntitledGame : public Application{
     }
 
     void render(Context& ctx) {
-        ctx.renderer.print(font, "Hello World!", {0.0, 20.0}, {1.0, 1.0}, GREEN, 0);
+        ctx.renderer.print(font, "Hello World!", {0.0, 0.0}, {1.0, 1.0}, Color::RGB(0, 255, 0), 0);
+        // ctx.renderer.draw(font.fontTex);
     }
 
     void finish() {
