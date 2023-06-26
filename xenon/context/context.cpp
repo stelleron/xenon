@@ -14,6 +14,23 @@ namespace xenon {
 
     }
 
+    // Timer context impl.
+    void Context::TimerContext::set(float dtime) {
+        this->dtime = dtime;
+        total_dt += dtime;
+        dt_history.push(dtime);
+
+        if (dt_history.size() > 25) {
+            total_dt -= dt_history.front();
+            dt_history.pop();
+        }
+    }
+
+    int Context::TimerContext::fps() {
+        float average_dt = total_dt/25;
+        return (int)roundf(1.0f/average_dt);
+    }
+
     // Render context impl.
     void Context::RenderContext::init(Renderer* renderer) {
         renderer->init();
@@ -137,8 +154,8 @@ namespace xenon {
     void Context::RenderContext::draw(Surface& surface, Rectangle targetRect, Vector2 pos, Vector2 scale, float rotation, Color color) {
         INVOKE_RENDER_FUNC(draw(surface, targetRect, pos, scale, rotation, color))
     }
-    void Context::RenderContext::print(Font& font, std::string message, Vector2 pos, Color color, int padding) {
-        INVOKE_RENDER_FUNC(print(font, message, pos, color, padding))
+    void Context::RenderContext::print(Font& font, std::string message, Vector2 pos, Vector2 scale, Color color, int padding) {
+        INVOKE_RENDER_FUNC(print(font, message, pos, scale, color, padding))
     }
     void Context::RenderContext::draw_batch() {
         INVOKE_RENDER_FUNC(draw_batch())

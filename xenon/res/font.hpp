@@ -10,6 +10,15 @@
     #define DEFAULT_FONT_SIZE 32
 
     namespace xenon {
+        // Used to store glyph data
+        struct GlyphData {
+            int charValue;
+            int xOffset;
+            int yOffset;
+            int advance;
+            Image image;
+        };
+
         // Used to create a font object
         struct Font {
             private:
@@ -17,6 +26,7 @@
             public:
                 Rectangle fontRecs[NUM_CHARS];
                 Texture fontTex;
+                GlyphData* glyphs;
 
                 // Constructor
                 Font();

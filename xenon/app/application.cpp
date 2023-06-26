@@ -48,13 +48,14 @@ namespace xenon {
          // 2. UPDATE
         LOG("Xenon: Starting game loop!");
         do {
+            internalClock.reset();
+
             ctx.events.reload();
             window.poll_events();
 
             if (window.is_active()) {
                 // Update
                 ctx.camera.set(camera);
-                internalClock.reset();
                 app.update(ctx);
 
                 // Render
@@ -75,7 +76,7 @@ namespace xenon {
                     float sleepTime = deltatimeCap - internalClock.get_elapsed();
                     std::this_thread::sleep_for(std::chrono::milliseconds(static_cast<long int>(sleepTime * 1000.0f)));
                 }
-
+                
                 ctx.timer.set(internalClock.get_elapsed());
             }
 

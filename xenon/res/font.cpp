@@ -9,16 +9,8 @@
 #include "utils/logger.hpp"
 
 namespace xenon {
-    struct GlyphData {
-        int charValue;
-        int xOffset;
-        int yOffset;
-        int advance;
-        Image image;
-    };
-
     Font::Font() {
-
+        glyphs = nullptr;
     }
 
     Font::Font(const char* path, int fontsize) {
@@ -30,7 +22,7 @@ namespace xenon {
     }
 
     Font::~Font() {
-
+        unload();
     }
 
     void Font::load(const char* path, int fontsize) {
@@ -48,7 +40,9 @@ namespace xenon {
     }
 
     void Font::load(unsigned char* data, size_t size, int fontsize) {
-        GlyphData* glyphs = new GlyphData[NUM_CHARS];
+        unload();
+        
+        glyphs = new GlyphData[NUM_CHARS];
         this->fontSize = fontsize;
         int xCharDim = 0, yCharDim = 0, xOffset = 0, yOffset = 0, imgArea = 0;
 
@@ -142,12 +136,21 @@ namespace xenon {
 
         // And finally convert it to a texture
         fontTex.load(fontAtlas);
-
-        // Also delete glyphs
-        delete[] glyphs;
+        
     }
 
     bool Font::is_loaded() {
-        return fontTex.is_loaded();
+        if (glyphs) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    void Font::unload() {
+        if (is_loaded()) {
+            delete[] glyphs;
+        }
     }
 }

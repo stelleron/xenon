@@ -7,6 +7,7 @@
     #include "audio/audio.hpp"
     #include "gfx/renderer.hpp"
     #include <map>
+    #include <queue>
 
 
     namespace xenon {
@@ -44,11 +45,14 @@
             struct TimerContext {
                 private:
                     float dtime;
+                    float total_dt;
+                    std::queue<float> dt_history;
                 public: 
-                    TimerContext() {dtime = 0.0f;}
-                    inline void set(float dtime) {this->dtime = dtime;}
+                    TimerContext() {dtime = 0.0f; total_dt = 0.0f;}
+                    void set(float dtime);
+                    
                     inline float dt() {return dtime;}
-                    inline int fps() {return (int)1.0f/dtime;}
+                    int fps();
             };
 
             struct CameraContext {
@@ -233,7 +237,7 @@
                     void draw(Surface& surface, Rectangle targetRect, Vector2 pos = {0.0, 0.0}, Vector2 scale = {1.0, 1.0}, float rotation = 0.0, Color color = Color::RGB(255, 255, 255));
 
                     // Used to render text
-                    void print(Font& font, std::string message, Vector2 pos = {0.0, 0.0}, Color color = Color::RGB(255, 255, 255), int padding = 4);
+                    void print(Font& font, std::string message, Vector2 pos = {0.0, 0.0}, Vector2 scale = {1.0, 1.0}, Color color = Color::RGB(255, 255, 255), int padding = 4);
                     void draw_batch(); 
 
                     // Used to lock/unlock access to the renderer 
