@@ -154,8 +154,8 @@ namespace xenon {
     void Context::RenderContext::draw(Surface& surface, Rectangle targetRect, Vector2 pos, Vector2 scale, float rotation, Color color) {
         INVOKE_RENDER_FUNC(draw(surface, targetRect, pos, scale, rotation, color))
     }
-    void Context::RenderContext::print(Font& font, std::string message, Vector2 pos, Vector2 scale, Color color, int padding) {
-        INVOKE_RENDER_FUNC(print(font, message, pos, scale, color, padding))
+    void Context::RenderContext::print(Font& font, std::string message, Vector2 pos, Vector2 scale, Color color, int spacing) {
+        INVOKE_RENDER_FUNC(print(font, message, pos, scale, color, spacing))
     }
     void Context::RenderContext::draw_batch() {
         INVOKE_RENDER_FUNC(draw_batch())

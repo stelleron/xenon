@@ -86,7 +86,7 @@ namespace xenon {
         
         // Now generate an atlas
         // First calculate an image size
-        float guessSize = sqrtf(imgArea)*1.4f;
+        float guessSize = sqrtf(imgArea * 2);
         int imageSize = (int)powf(2, ceilf(logf((float)guessSize)/logf(2)));
         
         // Set the font atlas

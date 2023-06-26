@@ -536,12 +536,19 @@ namespace xenon {
         draw(tex.color_tex, targetRect, pos, scale, rotation, color);
     }
 
-    void Renderer::print(Font& font, std::string message, Vector2 pos, Vector2 scale, Color color, int padding) {
+    void Renderer::print(Font& font, std::string message, Vector2 pos, Vector2 scale, Color color, int spacing) {
         int xOffset = 0;
+        int yOffset = 0;
+
         for (int x = 0; x < message.length(); x++) {
+            if (message[x] == '\n') {
+                yOffset = (int)(font.get_size() * 1.5f * scale.x);
+                xOffset = 0;
+            }
+
             RenderMode rmode = rBatch.vertexArray.get_render_type();
             if (rmode == Quads && rBatch.vertexArray.check_space(rBatch.vertexPointer, 4) && currentTextureID == font.fontTex.id) { 
-                rBatch.add(font.fontTex, {pos.x + xOffset, pos.y}, scale, 0, color, font.fontRecs[(int)message[x] - START_CHAR]); 
+                rBatch.add(font.fontTex, {pos.x + xOffset, pos.y + yOffset}, scale, 0, color, font.fontRecs[(int)message[x] - START_CHAR]); 
             } 
             else { 
                 if (rmode != None) { 
@@ -552,7 +559,9 @@ namespace xenon {
                 rBatch.vertexPointer = 0; 
                 rBatch.add(font.fontTex, {pos.x + xOffset, pos.y}, scale, 0, color, font.fontRecs[(int)message[x] - START_CHAR]);
             }
-            xOffset += (font.fontRecs[(int)message[x] - START_CHAR].width * scale.x) + padding;
+            if (font.glyphs[(int)message[x] - START_CHAR].advance == 0) xOffset += (font.fontRecs[(int)message[x] - START_CHAR].width * scale.x) + spacing;
+            else xOffset += (font.glyphs[(int)message[x] - START_CHAR].advance * scale.x) + spacing; 
+           
         }
     }
 

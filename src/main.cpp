@@ -7,7 +7,7 @@ class UntitledGame : public Application{
     Font font;
 
     void config(AppConfig& config) {
-        config.vsync = true;
+
     }
 
     void init(Context& ctx) {
@@ -21,9 +21,7 @@ class UntitledGame : public Application{
     }
 
     void render(Context& ctx) {
-        std::string fps = std::to_string(ctx.timer.fps());
-        fps += " FPS";
-        ctx.renderer.print(font, fps, {20.0, 20.0}, {1.0, 1.0}, GREEN, 4);
+        ctx.renderer.print(font, "Hello World!", {20.0, 20.0}, {1.0, 1.0}, GREEN, 0);
     }
 
     void finish() {
