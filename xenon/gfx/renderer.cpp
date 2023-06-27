@@ -225,7 +225,7 @@ namespace xenon {
             vertexArray[vertexPointer + 2].texCoords = trTexCoord;
             vertexArray[vertexPointer + 3].texCoords = tlTexCoord;
         }
-        
+                
         /*
         // Set positions 
         if (rotation != 0.0f) {
@@ -536,14 +536,14 @@ namespace xenon {
         draw(tex.color_tex, targetRect, pos, scale, rotation, color);
     }
 
-    void Renderer::print(Font& font, std::string message, Vector2 pos, Vector2 scale, Color color, int spacing) {
-        int xOffset = 0;
+    void Renderer::print(Font& font, std::string message, Vector2 pos, Vector2 scale, Color color, float spacing) {
+        float xOffset = 0.0f;
         int yOffset = 0;
 
-        for (int x = 0; x < message.length(); x++) {
+        for (int x = 0; x < message.size(); x++) {
             if (message[x] == '\n') {
                 yOffset = (int)(font.get_size() * 1.0f * scale.y);
-                xOffset = 0;
+                xOffset = 0.0f;
             }
             else {
                 RenderMode rmode = rBatch.vertexArray.get_render_type();

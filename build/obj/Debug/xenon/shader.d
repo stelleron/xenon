@@ -151,7 +151,7 @@ build/obj/Debug/xenon/shader.o: xenon/gfx/shader.cpp \
   external/include/glad/glm/integer.hpp \
   external/include/glad/glm/detail/func_integer.inl \
   xenon/utils/logger.hpp xenon/geom/vertex.hpp xenon/utils/color.hpp \
-  external/include/glad/glm/gtc/type_ptr.hpp \
+  xenon/geom/geometry.hpp external/include/glad/glm/gtc/type_ptr.hpp \
   external/include/glad/glm/gtc/../gtc/quaternion.hpp \
   external/include/glad/glm/gtc/../gtc/constants.hpp \
   external/include/glad/glm/gtc/../ext/scalar_constants.hpp \
@@ -561,6 +561,8 @@ xenon/utils/logger.hpp:
 xenon/geom/vertex.hpp:
 
 xenon/utils/color.hpp:
+
+xenon/geom/geometry.hpp:
 
 external/include/glad/glm/gtc/type_ptr.hpp:
 

@@ -158,7 +158,7 @@ build/obj/Debug/xenon/audio.o: xenon/audio/audio.cpp \
   external/include/glad/glm/vector_relational.hpp \
   external/include/glad/glm/integer.hpp \
   external/include/glad/glm/detail/func_integer.inl \
-  xenon/res/filesystem.hpp
+  xenon/geom/geometry.hpp xenon/res/filesystem.hpp
 
 xenon/audio/audio.hpp:
 
@@ -485,5 +485,7 @@ external/include/glad/glm/vector_relational.hpp:
 external/include/glad/glm/integer.hpp:
 
 external/include/glad/glm/detail/func_integer.inl:
+
+xenon/geom/geometry.hpp:
 
 xenon/res/filesystem.hpp:

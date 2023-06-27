@@ -8,6 +8,7 @@ namespace xenon {
     }
 
     Surface::Surface(int width, int height) {
+        id = 0;
         load(width, height);
     }
 

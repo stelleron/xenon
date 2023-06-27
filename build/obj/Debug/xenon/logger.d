@@ -148,7 +148,8 @@ build/obj/Debug/xenon/logger.o: xenon/utils/logger.cpp \
   external/include/glad/glm/matrix.hpp \
   external/include/glad/glm/vector_relational.hpp \
   external/include/glad/glm/integer.hpp \
-  external/include/glad/glm/detail/func_integer.inl
+  external/include/glad/glm/detail/func_integer.inl \
+  xenon/geom/geometry.hpp
 
 xenon/utils/logger.hpp:
 
@@ -455,3 +456,5 @@ external/include/glad/glm/vector_relational.hpp:
 external/include/glad/glm/integer.hpp:
 
 external/include/glad/glm/detail/func_integer.inl:
+
+xenon/geom/geometry.hpp:

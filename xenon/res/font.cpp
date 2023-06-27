@@ -14,10 +14,12 @@ namespace xenon {
     }
 
     Font::Font(const char* path, int fontsize) {
+        glyphs = nullptr;
         load(path, fontsize);
     }
 
     Font::Font(unsigned char* data, size_t size, int fontsize) {
+        glyphs = nullptr;
         load(data, size, fontsize);
     }
 

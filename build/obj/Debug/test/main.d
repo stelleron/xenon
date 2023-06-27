@@ -149,7 +149,7 @@ build/obj/Debug/test/main.o: src/main.cpp xenon/xenon.hpp \
   external/include/glad/glm/vector_relational.hpp \
   external/include/glad/glm/integer.hpp \
   external/include/glad/glm/detail/func_integer.inl \
-  xenon/utils/random.hpp xenon/geom/geometry.hpp \
+  xenon/geom/geometry.hpp xenon/utils/random.hpp \
   xenon/geom/draw_geometry.hpp xenon/res/font.hpp xenon/gfx/sprite.hpp \
   xenon/res/image.hpp xenon/res/filesystem.hpp xenon/time/timer.hpp \
   xenon/camera/camera.hpp xenon/gfx/shader.hpp xenon/gfx/surface.hpp \
@@ -522,9 +522,9 @@ external/include/glad/glm/integer.hpp:
 
 external/include/glad/glm/detail/func_integer.inl:
 
-xenon/utils/random.hpp:
-
 xenon/geom/geometry.hpp:
+
+xenon/utils/random.hpp:
 
 xenon/geom/draw_geometry.hpp:
 

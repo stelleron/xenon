@@ -4,6 +4,7 @@
     #include <functional>
     #include <string>
     #include "geom/vertex.hpp"
+    #include "geom/geometry.hpp"
 
     namespace xenon {
         // Enumerate the types of messages 
@@ -50,6 +51,7 @@
                 Logger& operator<<(const Vector2 vec);
                 Logger& operator<<(const Vector3 vec);
                 Logger& operator<<(const Vector4 vec);
+                Logger& operator<<(const Rectangle rect);
                 Logger& operator<<(const Vertex vertex);
                 void operator<<(const EndLog end);
         };

@@ -18,15 +18,19 @@ namespace xenon {
         unload();
     }
     Texture::Texture(const char* path) {
+        id = 0;
         load(path);
     }
     Texture::Texture(unsigned char* data, size_t size) {
+        id = 0;
         load(data, size);
     }
     Texture::Texture(const Image& image) {
+        id = 0;
         load(image);
     }
     Texture::Texture(int width, int height) {
+        id = 0;
         load(width, height);
     }
     void Texture::load(const char* path) {
@@ -46,8 +50,6 @@ namespace xenon {
         // Default texture params
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);  
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);    
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE); 
         // Default color swizzling
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_SWIZZLE_R, GL_RED);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_SWIZZLE_G, GL_GREEN);

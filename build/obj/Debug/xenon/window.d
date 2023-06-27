@@ -199,7 +199,7 @@ build/obj/Debug/xenon/window.o: xenon/window/window.cpp \
   external/include/glad/glm/vector_relational.hpp \
   external/include/glad/glm/integer.hpp \
   external/include/glad/glm/detail/func_integer.inl \
-  xenon/utils/logger.hpp xenon/geom/vertex.hpp
+  xenon/utils/logger.hpp xenon/geom/vertex.hpp xenon/geom/geometry.hpp
 
 external/include/glad/glad/glad.h:
 
@@ -614,3 +614,5 @@ external/include/glad/glm/detail/func_integer.inl:
 xenon/utils/logger.hpp:
 
 xenon/geom/vertex.hpp:
+
+xenon/geom/geometry.hpp:

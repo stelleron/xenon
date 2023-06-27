@@ -10,10 +10,12 @@ namespace xenon {
     }
 
     Image::Image(const char* path) {
+        data = nullptr;
         load(path);
     }
 
     Image::Image(unsigned char* data, size_t size) {
+        data = nullptr;
         load(data, size);
     }
 

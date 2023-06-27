@@ -150,7 +150,8 @@ build/obj/Debug/xenon/image.o: xenon/res/image.cpp \
   external/include/glad/glm/matrix.hpp \
   external/include/glad/glm/vector_relational.hpp \
   external/include/glad/glm/integer.hpp \
-  external/include/glad/glm/detail/func_integer.inl
+  external/include/glad/glm/detail/func_integer.inl \
+  xenon/geom/geometry.hpp
 
 external/include/glad/stb_image.h:
 
@@ -463,3 +464,5 @@ external/include/glad/glm/vector_relational.hpp:
 external/include/glad/glm/integer.hpp:
 
 external/include/glad/glm/detail/func_integer.inl:
+
+xenon/geom/geometry.hpp:

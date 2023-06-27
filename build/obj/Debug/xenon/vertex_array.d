@@ -149,7 +149,7 @@ build/obj/Debug/xenon/vertex_array.o: xenon/gfx/vertex_array.cpp \
   external/include/glad/glm/vector_relational.hpp \
   external/include/glad/glm/integer.hpp \
   external/include/glad/glm/detail/func_integer.inl \
-  xenon/gfx/vertex_array.hpp xenon/geom/geometry.hpp \
+  xenon/geom/geometry.hpp xenon/gfx/vertex_array.hpp \
   xenon/geom/draw_geometry.hpp
 
 xenon/utils/logger.hpp:
@@ -458,8 +458,8 @@ external/include/glad/glm/integer.hpp:
 
 external/include/glad/glm/detail/func_integer.inl:
 
-xenon/gfx/vertex_array.hpp:
-
 xenon/geom/geometry.hpp:
+
+xenon/gfx/vertex_array.hpp:
 
 xenon/geom/draw_geometry.hpp:

@@ -130,6 +130,19 @@ namespace xenon {
         return *this;
     }
 
+    Logger& Logger::operator<<(const Rectangle rect) {
+        this->message += "(";
+        this->message += std::to_string(rect.point.x);
+        this->message += ", ";
+        this->message += std::to_string(rect.point.y);
+        this->message += ", ";
+        this->message += std::to_string(rect.width);
+        this->message += ", ";
+        this->message += std::to_string(rect.height);
+        this->message += ")";
+        return *this;
+    }
+
     void Logger::operator<<(const EndLog end) {
         if (end.mType == Message)
             logCallback(message.c_str());
