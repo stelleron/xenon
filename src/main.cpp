@@ -3,7 +3,8 @@
 using namespace xenon;
 
 class UntitledGame : public Application{
-    
+    Texture background;
+    Texture ground;
     Font font;
     Color color;
     float x = 2.5f;
@@ -15,6 +16,9 @@ class UntitledGame : public Application{
     void init(Context& ctx) {
         font.load("build/font.ttf", 16);
         color = Color::RGB(0, 255, 0);
+
+        background.load("background.png");
+        ground.load("ground.png");
     }   
 
     void update(Context& ctx) {
@@ -24,7 +28,8 @@ class UntitledGame : public Application{
     }
 
     void render(Context& ctx) {
-        ctx.renderer.print(font, "Hello World", {20.0f, 20.0f}, {x, x}, Color::RGB(255, 255, 255), 0.0f);
+        ctx.renderer.draw(background);
+        ctx.renderer.draw(ground, {0, ctx.window.get_size().y - 16});
     }
 
     void finish() {
