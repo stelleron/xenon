@@ -126,7 +126,7 @@
                 void draw(Surface& tex, Rectangle targetRect, Vector2 pos = {0.0, 0.0}, Vector2 scale = {1.0, 1.0}, float rotation = 0.0, Color color = Color::RGB(255, 255, 255));
 
                 // Used to render text
-                void print(Font& font, std::string message, Vector2 pos = {0.0, 0.0}, Vector2 scale = {1.0, 1.0}, Color color = Color::RGB(255, 255, 255), float spacing = 4);
+                void print(Font& font, std::string message, Vector2 pos = {0.0, 0.0}, Vector2 scale = {1.0, 1.0}, Color color = Color::RGB(255, 255, 255), float spacing = DEFAULT_SPACING);
 
                 void draw_batch();
         };

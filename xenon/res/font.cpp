@@ -156,4 +156,46 @@ namespace xenon {
             delete[] glyphs;
         }
     }
+
+    int Font::measure_text(Font& font, std::string& str) {
+        return measure_text(font, str, font.get_size(), DEFAULT_SPACING);
+    }
+
+    int Font::measure_text(Font& font, std::string& str, float spacing) {
+        return measure_text(font, str, font.get_size(), spacing);
+    }
+
+    int Font::measure_text(Font& font, std::string& str, int font_size, float spacing) {
+        return (int)get_text_size(font, str, font_size, spacing).x;
+    }
+
+    Vector2 Font::get_text_size(Font& font, std::string& str, int font_size, float spacing) {
+        Vector2 text_size;
+        float scale_factor = (float)font_size/(float)font.get_size();
+
+        float text_width = 0.0f;
+        float text_max_width = 0.0f;
+        float text_height = (float)font.get_size();
+
+        for (int x = 0; x < str.size(); x++) {
+            if ( (int)str[x] != '\n') {
+                if (font.glyphs[(int)str[x] - START_CHAR].advance == 0) text_width += (font.fontRecs[(int)str[x] - START_CHAR].width * scale_factor) + spacing;
+                else text_width += (font.glyphs[(int)str[x] - START_CHAR].advance * scale_factor) + spacing;
+            }
+            else {
+                if (text_max_width < text_width) 
+                    text_max_width = text_width;
+                text_width = 0.0f;
+                text_height +=  (float)font.get_size() * LINE_SPACING_FACTOR;
+            }
+        }
+
+
+        if (text_max_width < text_width) 
+            text_max_width = text_width;
+
+        text_size = {text_width, text_height * scale_factor};
+
+        return text_size;
+    }
 }

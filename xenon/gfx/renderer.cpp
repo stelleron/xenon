@@ -542,7 +542,7 @@ namespace xenon {
 
         for (int x = 0; x < message.size(); x++) {
             if (message[x] == '\n') {
-                yOffset = (int)(font.get_size() * 1.0f * scale.y);
+                yOffset = (int)(font.get_size() * LINE_SPACING_FACTOR * scale.y);
                 xOffset = 0.0f;
             }
             else {
