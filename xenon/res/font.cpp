@@ -158,15 +158,32 @@ namespace xenon {
     }
 
     int Font::measure_text(Font& font, std::string& str) {
-        return measure_text(font, str, font.get_size(), DEFAULT_SPACING);
+        return measure_text(font, str.c_str(), font.get_size(), DEFAULT_SPACING);
     }
 
     int Font::measure_text(Font& font, std::string& str, float spacing) {
-        return measure_text(font, str, font.get_size(), spacing);
+        return measure_text(font, str.c_str(), font.get_size(), spacing);
     }
 
     int Font::measure_text(Font& font, std::string& str, int font_size, float spacing) {
+        return (int)get_text_size(font, str.c_str(), font_size, spacing).x;
+    }
+
+    int Font::measure_text(Font& font, const char* str) {
+        return measure_text(font, str, font.get_size(), DEFAULT_SPACING);
+    }
+
+    int Font::measure_text(Font& font, const char* str, float spacing) {
+        return measure_text(font, str, font.get_size(), spacing);
+    }
+
+    int Font::measure_text(Font& font, const char* str, int font_size, float spacing) {
         return (int)get_text_size(font, str, font_size, spacing).x;
+    }
+
+    Vector2 Font::get_text_size(Font& font, const char* str, int font_size, float spacing) {
+        std::string message = str;
+        return get_text_size(font, message, font_size, spacing);
     }
 
     Vector2 Font::get_text_size(Font& font, std::string& str, int font_size, float spacing) {

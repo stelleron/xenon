@@ -48,8 +48,12 @@
                 static int measure_text(Font& font, std::string& str);
                 static int measure_text(Font& font, std::string& str, float spacing);
                 static int measure_text(Font& font, std::string& str, int font_size, float spacing);
+                static int measure_text(Font& font, const char* str);
+                static int measure_text(Font& font, const char* str, float spacing);
+                static int measure_text(Font& font, const char* str, int font_size, float spacing);
 
                 static Vector2 get_text_size(Font& font, std::string& str, int font_size, float spacing);
+                static Vector2 get_text_size(Font& font, const char* str, int font_size, float spacing);
         };
     }
 #endif

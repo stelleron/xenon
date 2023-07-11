@@ -9,7 +9,6 @@ class UntitledGame : public Application{
     Color color;
     float x = 2.5f;
 
-    std::string message = "Hello World!";
     Vector2 vec;
 
     void config(AppConfig& config) {
@@ -23,7 +22,7 @@ class UntitledGame : public Application{
         background.load("background.png");
         ground.load("ground.png");
 
-        vec = Font::get_text_size(font, message , 32, 1.0f);
+        vec = Font::get_text_size(font, "Hello World!" , 64, 1.0f);
     }   
 
     void update(Context& ctx) {
@@ -34,7 +33,7 @@ class UntitledGame : public Application{
 
     void render(Context& ctx) {
         ctx.renderer.draw_rect({400.0 - vec.x/2, 0.0}, vec.x, vec.y, GREEN);
-        ctx.renderer.print(font, message, {400.0 - vec.x/2, 0.0f}, {1.0f, 1.0f}, WHITE, 1.0f);
+        ctx.renderer.print(font, "Hello World", {400.0 - vec.x/2, 0.0f}, {2.0f, 2.0f}, WHITE, 1.0f);
         ctx.renderer.draw_line(400.0, 0.0, 400.0, 600.0, RED);
     }
 
