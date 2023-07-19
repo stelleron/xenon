@@ -5,9 +5,10 @@ using namespace xenon;
 class UntitledGame : public Application{
     Texture background;
     Texture ground;
+    Texture tex;
     Font font;
     Color color;
-    float x = 2.5f;
+    float x = 0.0f;
 
     Vector2 vec;
 
@@ -21,6 +22,7 @@ class UntitledGame : public Application{
 
         background.load("background.png");
         ground.load("ground.png");
+        tex.load("gliscor.png");
 
         vec = Font::get_text_size(font, "Hello World!" , 64, 1.0f);
     }   
@@ -29,12 +31,12 @@ class UntitledGame : public Application{
         if (ctx.keyboard.is_pressed(Key::Escape)) {
             ctx.window.close();
         }
+
+        x += 1.0f;
     }
 
     void render(Context& ctx) {
-        ctx.renderer.draw_rect({400.0 - vec.x/2, 0.0}, vec.x, vec.y, GREEN);
-        ctx.renderer.print(font, "Hello World", {400.0 - vec.x/2, 0.0f}, {2.0f, 2.0f}, WHITE, 1.0f);
-        ctx.renderer.draw_line(400.0, 0.0, 400.0, 600.0, RED);
+        ctx.renderer.draw(tex, (Rectangle){{0.0, 0.0}, (float)tex.width, (float)tex.height}, {100.0, 100.0}, {1.0, 1.0}, x, WHITE);
     }
 
     void finish() {
