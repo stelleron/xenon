@@ -112,7 +112,7 @@ namespace xenon {
                 }
             }
             // Set the rectangles
-            fontRecs[i].point = {dataPtrX, dataPtrY};
+            fontRecs[i].pos = {dataPtrX, dataPtrY};
             fontRecs[i].width = glyphs[i].image.width;
             fontRecs[i].height = glyphs[i].image.height;
 

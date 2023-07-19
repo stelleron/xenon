@@ -237,10 +237,10 @@ namespace xenon {
         BATCH_SPACE_ASSERT(startIndex, 4);
 
         // Now time to add all of the vertices to the vertex array
-        vArray[startIndex] = Vertex(Vector2(rectangle.point.x, rectangle.point.y));
-        vArray[startIndex + 1] = Vertex(Vector2(rectangle.point.x + rectangle.width, rectangle.point.y));
-        vArray[startIndex + 2] = Vertex(Vector2(rectangle.point.x, rectangle.point.y + rectangle.height));
-        vArray[startIndex + 3] = Vertex(Vector2(rectangle.point.x + rectangle.width, rectangle.point.y + rectangle.height));
+        vArray[startIndex] = Vertex(Vector2(rectangle.pos.x, rectangle.pos.y));
+        vArray[startIndex + 1] = Vertex(Vector2(rectangle.pos.x + rectangle.width, rectangle.pos.y));
+        vArray[startIndex + 2] = Vertex(Vector2(rectangle.pos.x, rectangle.pos.y + rectangle.height));
+        vArray[startIndex + 3] = Vertex(Vector2(rectangle.pos.x + rectangle.width, rectangle.pos.y + rectangle.height));
     }
 
     void VertexArray::add(const Quadrilateral& quad, int startIndex) {

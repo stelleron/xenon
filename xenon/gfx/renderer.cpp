@@ -85,10 +85,10 @@ namespace xenon {
         vertexArray[vertexPointer + 2].color = sprite.color;
         vertexArray[vertexPointer + 3].color = sprite.color;
         // Now set the tex coords
-        vertexArray[vertexPointer].texCoords = {sprite.targetRect.point.x/tex->width, sprite.targetRect.point.y/tex->height};
-        vertexArray[vertexPointer + 1].texCoords = {(sprite.targetRect.point.x + sprite.targetRect.width)/tex->width, sprite.targetRect.point.y/tex->height};
-        vertexArray[vertexPointer + 2].texCoords = {sprite.targetRect.point.x/tex->width, (sprite.targetRect.point.y + sprite.targetRect.height)/tex->height};
-        vertexArray[vertexPointer + 3].texCoords = {(sprite.targetRect.point.x + sprite.targetRect.width)/tex->width, (sprite.targetRect.point.y + sprite.targetRect.height)/tex->height};
+        vertexArray[vertexPointer].texCoords = {sprite.targetRect.pos.x/tex->width, sprite.targetRect.pos.y/tex->height};
+        vertexArray[vertexPointer + 1].texCoords = {(sprite.targetRect.pos.x + sprite.targetRect.width)/tex->width, sprite.targetRect.pos.y/tex->height};
+        vertexArray[vertexPointer + 2].texCoords = {sprite.targetRect.pos.x/tex->width, (sprite.targetRect.pos.y + sprite.targetRect.height)/tex->height};
+        vertexArray[vertexPointer + 3].texCoords = {(sprite.targetRect.pos.x + sprite.targetRect.width)/tex->width, (sprite.targetRect.pos.y + sprite.targetRect.height)/tex->height};
         // And finally positions
         if (sprite.rotation != 0.0f) {
             float radius = sqrt((sprite.targetRect.width * sprite.targetRect.width *  sprite.scale.x *  sprite.scale.x) + (sprite.targetRect.height * sprite.targetRect.height * sprite.scale.y * sprite.scale.y))/2; 
@@ -195,10 +195,10 @@ namespace xenon {
         if (targetRect.width < 0) {flipX = true;}
         if (targetRect.height < 0) {flipY = true;}
 
-        Vector2 tlTexCoord = {targetRect.point.x/tex.width, targetRect.point.y/tex.height}; 
-        Vector2 trTexCoord = {(targetRect.point.x + absWidth)/tex.width, targetRect.point.y/tex.height};
-        Vector2 blTexCoord = {targetRect.point.x/tex.width, (targetRect.point.y + absHeight)/tex.height};
-        Vector2 brTexCoord = {(targetRect.point.x + absWidth)/tex.width, (targetRect.point.y + absHeight)/tex.height};
+        Vector2 tlTexCoord = {targetRect.pos.x/tex.width, targetRect.pos.y/tex.height}; 
+        Vector2 trTexCoord = {(targetRect.pos.x + absWidth)/tex.width, targetRect.pos.y/tex.height};
+        Vector2 blTexCoord = {targetRect.pos.x/tex.width, (targetRect.pos.y + absHeight)/tex.height};
+        Vector2 brTexCoord = {(targetRect.pos.x + absWidth)/tex.width, (targetRect.pos.y + absHeight)/tex.height};
 
         // Set tex coords
         if (flipX == false && flipY == false) {

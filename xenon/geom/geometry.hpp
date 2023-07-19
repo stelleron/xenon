@@ -49,14 +49,16 @@
 
         // Used to create a rectangle
         struct Rectangle {
-            Vector2 point;
+            Vector2 pos;
             float width;
             float height;
 
             // Constructors
             Rectangle();
-            Rectangle(Vector2 point, float size); // Square
-            Rectangle(Vector2 point, float width, float height);
+            Rectangle(float x, float y, float size); // Square
+            Rectangle(float x, float y, float width, float height);
+            Rectangle(Vector2 pos, float size); // Square
+            Rectangle(Vector2 pos, float width, float height);
         };
 
         // Used to create a circle

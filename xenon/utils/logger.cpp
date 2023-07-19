@@ -132,9 +132,9 @@ namespace xenon {
 
     Logger& Logger::operator<<(const Rectangle rect) {
         this->message += "(";
-        this->message += std::to_string(rect.point.x);
+        this->message += std::to_string(rect.pos.x);
         this->message += ", ";
-        this->message += std::to_string(rect.point.y);
+        this->message += std::to_string(rect.pos.y);
         this->message += ", ";
         this->message += std::to_string(rect.width);
         this->message += ", ";

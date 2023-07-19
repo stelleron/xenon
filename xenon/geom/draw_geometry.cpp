@@ -28,10 +28,10 @@ namespace xenon {
     }
 
     DrawQuad::DrawQuad(const Rectangle& rect, const Color& color) {
-        this->point1 = rect.point;
-        this->point2 = Vector2(rect.point.x, rect.point.y + rect.height);
-        this->point3 = Vector2(rect.point.x + rect.width, rect.point.y);
-        this->point4 = Vector2(rect.point.x + rect.width, rect.point.y + rect.height);
+        this->point1 = rect.pos;
+        this->point2 = Vector2(rect.pos.x, rect.pos.y + rect.height);
+        this->point3 = Vector2(rect.pos.x + rect.width, rect.pos.y);
+        this->point4 = Vector2(rect.pos.x + rect.width, rect.pos.y + rect.height);
         this->color = color;
     }
 

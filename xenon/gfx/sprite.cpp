@@ -145,7 +145,7 @@ namespace xenon {
     void Sprite::load(const char* path) {
         tex.load(path);
         pos = {0.0f, 0.0f};
-        targetRect.point = {0.0f, 0.0f};
+        targetRect.pos = {0.0f, 0.0f};
         targetRect.width = tex.width;
         targetRect.height = tex.height;
     }
@@ -153,7 +153,7 @@ namespace xenon {
     void Sprite::load(unsigned char* data, size_t size) {
         tex.load(data, size);
         pos = {0.0f, 0.0f};
-        targetRect.point = {0.0f, 0.0f};
+        targetRect.pos = {0.0f, 0.0f};
         targetRect.width = tex.width;
         targetRect.height = tex.height;
     }
@@ -161,7 +161,7 @@ namespace xenon {
     void Sprite::load(const Image& image) {
         tex.load(image);
         pos = {0.0f, 0.0f};
-        targetRect.point = {0.0f, 0.0f};
+        targetRect.pos = {0.0f, 0.0f};
         targetRect.width = tex.width;
         targetRect.height = tex.height;
     }

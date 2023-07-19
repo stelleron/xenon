@@ -1,4 +1,6 @@
 #include "geom/geometry.hpp"
+#include "utils/logger.hpp"
+
 namespace xenon {
     Point::Point() {
         pos = Vector2(0,0);
@@ -49,19 +51,29 @@ namespace xenon {
     }
 
     Rectangle::Rectangle() {
-        point = Vector2(0,0);
+        pos = Vector2(0,0);
         width = 0;
         height = 0;
     }
 
-    Rectangle::Rectangle(Vector2 point, float size) 
-    : point(point), width(size), height(size) {
+    Rectangle::Rectangle(float x, float y, float size) 
+    : width(size), height(size) {
+        pos = Vector2(x, y);
+    }
+
+    Rectangle::Rectangle(float x, float y, float width, float height) 
+    : width(width), height(height) {
+        pos = Vector2(x, y);
+    }
+
+    Rectangle::Rectangle(Vector2 pos, float size) 
+    : pos(pos), width(size), height(size) {
 
     }
 
-    Rectangle::Rectangle(Vector2 point, float width, float height) 
-    : point(point), width(width), height(height) {
-
+    Rectangle::Rectangle(Vector2 pos, float width, float height) 
+    : pos(pos), width(width), height(height) {
+        LOG(pos);
     }
 
     Circle::Circle() {

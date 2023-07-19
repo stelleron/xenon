@@ -36,7 +36,7 @@ class UntitledGame : public Application{
     }
 
     void render(Context& ctx) {
-        ctx.renderer.draw(tex, (Rectangle){{0.0, 0.0}, (float)tex.width, (float)tex.height}, {100.0, 100.0}, {1.0, 1.0}, x, WHITE);
+        ctx.renderer.draw(tex, (Rectangle){0.0, 0.0, (float)tex.width, (float)tex.height}, {100.0, 100.0}, {1.0, 1.0}, x, WHITE);
     }
 
     void finish() {
