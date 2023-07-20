@@ -35,6 +35,7 @@
                 void set_min_size(Vector2 minDim);
                 void set_max_size(Vector2 maxDim);
                 void set_window_pos(Vector2 windowPos);
+                void set_window_size(Vector2 windowSize);
                 void restore();
                 void minimize();
                 void maximize();

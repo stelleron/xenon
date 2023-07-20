@@ -141,6 +141,7 @@ namespace xenon {
     void Window::set_min_size(Vector2 minDim) {SDL_SetWindowMinimumSize(window, minDim.x, minDim.y);}
     void Window::set_max_size(Vector2 maxDim) {SDL_SetWindowMaximumSize(window, maxDim.x, maxDim.y);}
     void Window::set_window_pos(Vector2 windowPos) {SDL_SetWindowPosition(window, windowPos.x, windowPos.y);}
+    void Window::set_window_size(Vector2 windowSize) {SDL_SetWindowSize(window, windowSize.x, windowSize.y);}
     void Window::restore() {SDL_RestoreWindow(window);}
     void Window::minimize() {SDL_MinimizeWindow(window);}; 
     void Window::maximize() {SDL_MaximizeWindow(window);}

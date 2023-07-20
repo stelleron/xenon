@@ -33,6 +33,8 @@
                     inline void set_max_window_size(int max_width, int max_height) {window->set_max_size(Vector2(max_width, max_height));}
                     inline void set_pos(Vector2 pos) {window->set_window_pos(pos);}
                     inline void set_pos(int x, int y) {set_pos(Vector2(x, y));}
+                    inline void set_size(Vector2 size) {window->set_window_size(size);}
+                    inline void set_size(int width, int height) {window->set_window_size(Vector2(width, height));}
                     inline void restore() {window->restore();}
                     inline void minimize() {window->minimize();}
                     inline void maximize() {window->maximize();}
