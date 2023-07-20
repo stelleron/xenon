@@ -73,7 +73,7 @@ namespace xenon {
 
     Rectangle::Rectangle(Vector2 pos, float width, float height) 
     : pos(pos), width(width), height(height) {
-        LOG(pos);
+
     }
 
     Circle::Circle() {
