@@ -7,8 +7,9 @@
             unsigned int id;
             int width;
             int height;
+
             Texture color_tex;
-            Texture depth_tex;
+            unsigned int depth_tex;
 
             // Constructors
             Surface();

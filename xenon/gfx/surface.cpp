@@ -18,7 +18,8 @@ namespace xenon {
 
     void Surface::unload() {
         if (is_loaded()) {
-            glDeleteTextures(1, &id);
+            glDeleteFramebuffers(1, &id);
+            glDeleteRenderbuffers(1, &depth_tex);
         }
         id = 0;
     }
@@ -38,13 +39,11 @@ namespace xenon {
         glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, color_tex.id, 0);
 
         // Now attach a depth texture
-        glGenRenderbuffers(1, &depth_tex.id);
-        glBindRenderbuffer(GL_RENDERBUFFER, depth_tex.id);
+        glGenRenderbuffers(1, &depth_tex);
+        glBindRenderbuffer(GL_RENDERBUFFER, depth_tex);
         glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT32, width, height);
-        glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, depth_tex.id);
-        depth_tex.width = width;
-        depth_tex.height = height;
-            
+        glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, depth_tex);
+
         // Unbind framebuffer and texture
         if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
             ERROR("Error: Framebuffer is not complete!");
