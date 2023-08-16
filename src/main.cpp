@@ -2,45 +2,37 @@
 
 using namespace xenon;
 
-const int WINDOW_WIDTH = 800;
-const int WINDOW_HEIGHT = 600;
-const float DESIRED_ASPECT_RATIO = static_cast<float>(WINDOW_WIDTH) / static_cast<float>(WINDOW_HEIGHT);
-
-
 class UntitledGame : public Application{
+    Font font;
+    Shader shader;
+
     void config(AppConfig& config) {
         config.resizable = true;
-        config.width = WINDOW_WIDTH;
-        config.height = WINDOW_HEIGHT;
+        config.width = 800;
+        config.height = 600;
     }
 
     void init(Context& ctx) {
+        font.load("font.ttf");
+        
+        size_t size;
+        const char* v_shader = filesystem::load_file_text("shader.vs", size);
+        const char* f_shader = filesystem::load_file_text("shader.fs", size);
 
+        shader.load(v_shader, f_shader);
     }   
 
     void update(Context& ctx) {
         if (ctx.keyboard.is_pressed(Key::Escape)) {
             ctx.window.close();
         }
-        else if (ctx.window.was_resized()) {
-            Vector2 window_size = ctx.window.get_size();
-            float currentAspectRatio = static_cast<float>(window_size.x) / static_cast<float>(window_size.y);
-
-            if (currentAspectRatio != DESIRED_ASPECT_RATIO) {
-                if (currentAspectRatio > DESIRED_ASPECT_RATIO) {
-                    window_size.x = static_cast<int>(window_size.y * DESIRED_ASPECT_RATIO);
-                } else {
-                    window_size.y = static_cast<int>(window_size.x / DESIRED_ASPECT_RATIO);
-                }
-
-                ctx.window.set_size(window_size);
-                LOG(window_size);
-            }
-        }
     }
 
     void render(Context& ctx) {
+        shader.set_float("stuff", 0.6f);
+        ctx.renderer.set_current_shader(shader);
 
+        ctx.renderer.print(font, "Hello World", {2.0, 2.0}, {20.0/32.0, 20.0/32.0}, WHITE, 0.0f);
     }
 
     void finish() {
