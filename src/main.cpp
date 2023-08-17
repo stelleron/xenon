@@ -29,7 +29,6 @@ class UntitledGame : public Application{
     }
 
     void render(Context& ctx) {
-        shader.set_float("stuff", 0.6f);
         ctx.renderer.set_current_shader(shader);
 
         ctx.renderer.print(font, "Hello World", {2.0, 2.0}, {20.0/32.0, 20.0/32.0}, WHITE, 0.0f);
