@@ -9,10 +9,10 @@ project "xenon"
    cppdialect "C++11"
    targetdir "build"
    objdir "build/obj/"
-   files {"xenon/**.cpp"}
-   includedirs {"external/include/", "external/include/glad/", "xenon/"}
-   libdirs {"external/lib/", "external/lib/glad/"}
-   links {"SDL2", "glad", "soloud"}
+   files {"xenon/**.cpp", "external/lib/glad/glad.c"}
+   includedirs {"external/include/", "external/include/glad/", "external/include/glad/glad/", "xenon/"}
+   libdirs {"external/lib/"}
+   links {"SDL2", "soloud"}
 
    filter "configurations:Debug"
        defines {"DEBUG", "ENABLE_XENON_LOGGER"}

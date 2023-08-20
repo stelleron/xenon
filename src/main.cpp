@@ -13,13 +13,7 @@ class UntitledGame : public Application{
     }
 
     void init(Context& ctx) {
-        font.load("font.ttf");
-        
-        size_t size;
-        const char* v_shader = filesystem::load_file_text("shader.vs", size);
-        const char* f_shader = filesystem::load_file_text("shader.fs", size);
 
-        shader.load(v_shader, f_shader);
     }   
 
     void update(Context& ctx) {
@@ -29,9 +23,7 @@ class UntitledGame : public Application{
     }
 
     void render(Context& ctx) {
-        ctx.renderer.set_current_shader(shader);
-
-        ctx.renderer.print(font, "Hello World", {2.0, 2.0}, {20.0/32.0, 20.0/32.0}, WHITE, 0.0f);
+ 
     }
 
     void finish() {

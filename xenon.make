@@ -24,15 +24,15 @@ ifeq ($(config),debug)
   TARGET = $(TARGETDIR)/libxenon.dylib
   OBJDIR = build/obj/Debug/xenon
   DEFINES += -DDEBUG -DENABLE_XENON_LOGGER
-  INCLUDES += -Iexternal/include -Iexternal/include/glad -Ixenon
+  INCLUDES += -Iexternal/include -Iexternal/include/glad -Iexternal/include/glad/glad -Ixenon
   FORCE_INCLUDE +=
-  ALL_CPPFLAGS += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES)
+  ALL_CPPFLAGS += $(CPPFLAGS) -MD -MP $(DEFINES) $(INCLUDES)
   ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m64 -fPIC -g
   ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -fPIC -g -std=c++11
   ALL_RESFLAGS += $(RESFLAGS) $(DEFINES) $(INCLUDES)
-  LIBS += -lSDL2 -lglad -lsoloud
+  LIBS += -lSDL2 -lsoloud
   LDDEPS +=
-  ALL_LDFLAGS += $(LDFLAGS) -Lexternal/lib -Lexternal/lib/glad -m64 -dynamiclib -Wl,-install_name,@rpath/libxenon.dylib
+  ALL_LDFLAGS += $(LDFLAGS) -Lexternal/lib -m64 -dynamiclib -Wl,-install_name,@rpath/libxenon.dylib
   LINKCMD = $(CXX) -o "$@" $(OBJECTS) $(RESOURCES) $(ALL_LDFLAGS) $(LIBS)
   define PREBUILDCMDS
   endef
@@ -59,15 +59,15 @@ ifeq ($(config),release)
   TARGET = $(TARGETDIR)/libxenon.dylib
   OBJDIR = build/obj/Release/xenon
   DEFINES += -DNDEBUG
-  INCLUDES += -Iexternal/include -Iexternal/include/glad -Ixenon
+  INCLUDES += -Iexternal/include -Iexternal/include/glad -Iexternal/include/glad/glad -Ixenon
   FORCE_INCLUDE +=
-  ALL_CPPFLAGS += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES)
+  ALL_CPPFLAGS += $(CPPFLAGS) -MD -MP $(DEFINES) $(INCLUDES)
   ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m64 -O2 -fPIC
   ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -O2 -fPIC -std=c++11
   ALL_RESFLAGS += $(RESFLAGS) $(DEFINES) $(INCLUDES)
-  LIBS += -lSDL2 -lglad -lsoloud
+  LIBS += -lSDL2 -lsoloud
   LDDEPS +=
-  ALL_LDFLAGS += $(LDFLAGS) -Lexternal/lib -Lexternal/lib/glad -m64 -dynamiclib -Wl,-install_name,@rpath/libxenon.dylib
+  ALL_LDFLAGS += $(LDFLAGS) -Lexternal/lib -m64 -dynamiclib -Wl,-install_name,@rpath/libxenon.dylib
   LINKCMD = $(CXX) -o "$@" $(OBJECTS) $(RESOURCES) $(ALL_LDFLAGS) $(LIBS)
   define PREBUILDCMDS
   endef
@@ -81,6 +81,7 @@ all: prebuild prelink $(TARGET)
 endif
 
 OBJECTS := \
+	$(OBJDIR)/glad.o \
 	$(OBJDIR)/app_config.o \
 	$(OBJDIR)/application.o \
 	$(OBJDIR)/audio.o \
@@ -162,6 +163,9 @@ else
 $(OBJECTS): | $(OBJDIR)
 endif
 
+$(OBJDIR)/glad.o: external/lib/glad/glad.c
+	@echo $(notdir $<)
+	$(SILENT) $(CC) $(ALL_CFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/app_config.o: xenon/app/app_config.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
