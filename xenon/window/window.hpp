@@ -39,7 +39,6 @@
                 void restore();
                 void minimize();
                 void maximize();
-            
         };
     }
 #endif

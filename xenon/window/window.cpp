@@ -24,6 +24,8 @@ namespace xenon {
         if (!config.decorated) window_flags = window_flags | SDL_WINDOW_BORDERLESS;
         if (config.focused) window_flags = window_flags | SDL_WINDOW_INPUT_FOCUS;
 
+        window_flags = window_flags | SDL_WINDOW_ALLOW_HIGHDPI;
+
         // Then create window
         int window_pos_x = SDL_WINDOWPOS_UNDEFINED;
         int window_pos_y = SDL_WINDOWPOS_UNDEFINED;
