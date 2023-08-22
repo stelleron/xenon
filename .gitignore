@@ -1,6 +1,3 @@
 build/
 .boot
 update_lib.sh
-font.ttf
-shader.fs
-shader.vs
