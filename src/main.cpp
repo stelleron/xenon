@@ -3,12 +3,14 @@
 using namespace xenon;
 
 class UntitledGame : public Application{
+    Font font;
+
     void config(AppConfig& config) {
         config.resizable = true;
     }
 
     void init(Context& ctx) {
-
+        font.load("font.ttf");
     }   
 
     void update(Context& ctx) {
@@ -18,7 +20,7 @@ class UntitledGame : public Application{
     }
 
     void render(Context& ctx) {
-
+        ctx.renderer.print(font, "Hello World", {20.0, 20.0}, {20.0/32.0, 20.0/32.0});
     }
 
     void finish() {
