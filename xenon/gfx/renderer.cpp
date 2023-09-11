@@ -336,7 +336,6 @@ namespace xenon {
         glViewport(0, 0, surface.width, surface.height);
         currCamera->dimensions = {surface.width, surface.height};
         fill({0, 0, 0, 0});
-        
     }
 
     void Renderer::exit_surface() {
@@ -571,6 +570,7 @@ namespace xenon {
         if (rmode != None) {
             draw(rBatch.vertexArray);
         }
+        currentTextureID = defaultTextureID;
         rBatch.vertexArray.reset();
         rBatch.vertexPointer = 0;
     }

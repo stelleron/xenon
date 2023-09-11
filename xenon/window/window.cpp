@@ -16,15 +16,13 @@ namespace xenon {
 
     void Window::init(const AppConfig& config) {
         // First get window flags
-        Uint32 window_flags = SDL_WINDOW_OPENGL;
+        Uint32 window_flags = SDL_WINDOW_OPENGL | SDL_WINDOW_ALLOW_HIGHDPI;
         if (config.resizable) window_flags = window_flags | SDL_WINDOW_RESIZABLE;
         if (config.maximized) window_flags = window_flags | SDL_WINDOW_MAXIMIZED;
         if (config.fullscreen) window_flags = window_flags | SDL_WINDOW_FULLSCREEN;
         if (config.desktop_fullscreen) window_flags = window_flags | SDL_WINDOW_FULLSCREEN_DESKTOP;
         if (!config.decorated) window_flags = window_flags | SDL_WINDOW_BORDERLESS;
         if (config.focused) window_flags = window_flags | SDL_WINDOW_INPUT_FOCUS;
-
-        window_flags = window_flags | SDL_WINDOW_ALLOW_HIGHDPI;
 
         // Then create window
         int window_pos_x = SDL_WINDOWPOS_UNDEFINED;
