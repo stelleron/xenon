@@ -1,6 +1,7 @@
 #include "xenon.hpp"
 #include "window_surface.hpp"
 #include "constants.hpp"
+#include <iostream>
 
 using namespace xenon;
 
