@@ -4,7 +4,7 @@ using namespace xenon;
 
 class UntitledGame : public Application{
     void config(AppConfig& config) {
-        config.resizable = true;
+        config.resizable = false;
     }
 
     void init(Context& ctx) {
