@@ -14,6 +14,8 @@
     #include "res/filesystem.hpp"
 
     #include "time/timer.hpp"
+
+    #include "thread/thread.hpp"
     
     #include "camera/camera.hpp"
 

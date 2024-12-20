@@ -100,6 +100,7 @@ OBJECTS := \
 	$(OBJDIR)/filesystem.o \
 	$(OBJDIR)/font.o \
 	$(OBJDIR)/image.o \
+	$(OBJDIR)/thread.o \
 	$(OBJDIR)/timer.o \
 	$(OBJDIR)/color.o \
 	$(OBJDIR)/logger.o \
@@ -218,6 +219,9 @@ $(OBJDIR)/font.o: xenon/res/font.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/image.o: xenon/res/image.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/thread.o: xenon/thread/thread.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/timer.o: xenon/time/timer.cpp

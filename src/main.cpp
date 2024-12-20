@@ -3,6 +3,8 @@
 using namespace xenon;
 
 class UntitledGame : public Application{
+    int a = 0;
+
     void config(AppConfig& config) {
         config.resizable = false;
     }
