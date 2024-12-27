@@ -7,3 +7,4 @@ This branch that you're looking at is the base library. I'll be writing extensio
 - Advanced Time
 - Misc. Features
 - Improved Camera
+- Gamepad/Joystick Support
