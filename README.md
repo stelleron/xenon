@@ -7,3 +7,5 @@ This branch that you're looking at is the base library. I'll be writing extensio
 - Misc. Features
 - Improved Camera
 - Gamepad/Joystick Support
+- Physics 
+- Porting to SDL3
