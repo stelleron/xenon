@@ -22,7 +22,7 @@ project "xenon"
        defines { "NDEBUG" }
        optimize "On"
 
-project "test"   
+project "game"
    kind "ConsoleApp"
    language "C++"
    cppdialect "C++11"

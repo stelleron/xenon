@@ -97,6 +97,7 @@ OBJECTS := \
 	$(OBJDIR)/vertex_array.o \
 	$(OBJDIR)/event_data.o \
 	$(OBJDIR)/event_handler.o \
+	$(OBJDIR)/net.o \
 	$(OBJDIR)/filesystem.o \
 	$(OBJDIR)/font.o \
 	$(OBJDIR)/image.o \
@@ -210,6 +211,9 @@ $(OBJDIR)/event_data.o: xenon/input/event_data.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/event_handler.o: xenon/input/event_handler.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/net.o: xenon/net/net.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/filesystem.o: xenon/res/filesystem.cpp

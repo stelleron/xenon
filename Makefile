@@ -10,14 +10,14 @@ endif
 
 ifeq ($(config),debug)
   xenon_config = debug
-  test_config = debug
+  game_config = debug
 endif
 ifeq ($(config),release)
   xenon_config = release
-  test_config = release
+  game_config = release
 endif
 
-PROJECTS := xenon test
+PROJECTS := xenon game
 
 .PHONY: all clean help $(PROJECTS) 
 
@@ -29,15 +29,15 @@ ifneq (,$(xenon_config))
 	@${MAKE} --no-print-directory -C . -f xenon.make config=$(xenon_config)
 endif
 
-test: xenon
-ifneq (,$(test_config))
-	@echo "==== Building test ($(test_config)) ===="
-	@${MAKE} --no-print-directory -C . -f test.make config=$(test_config)
+game: xenon
+ifneq (,$(game_config))
+	@echo "==== Building game ($(game_config)) ===="
+	@${MAKE} --no-print-directory -C . -f game.make config=$(game_config)
 endif
 
 clean:
 	@${MAKE} --no-print-directory -C . -f xenon.make clean
-	@${MAKE} --no-print-directory -C . -f test.make clean
+	@${MAKE} --no-print-directory -C . -f game.make clean
 
 help:
 	@echo "Usage: make [config=name] [target]"
@@ -50,6 +50,6 @@ help:
 	@echo "   all (default)"
 	@echo "   clean"
 	@echo "   xenon"
-	@echo "   test"
+	@echo "   game"
 	@echo ""
 	@echo "For more information, see https://github.com/premake/premake-core/wiki"
