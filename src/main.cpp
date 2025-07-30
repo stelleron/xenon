@@ -1,15 +1,20 @@
 #include "xenon.hpp"
+#include "window_surface.hpp"
 
 using namespace xenon;
 
 class UntitledGame : public Application{
+    // For creating a smaller virtual surface
+    WindowSurface virtual_surface;
+
     void config(AppConfig& config) {
-        config.resizable = true;
-        config.background_color = Color::RGB(220, 220, 220);
+        config.width = 1080;
+        config.height = 720;
+        config.resizable = false;
     }
 
     void init(Context& ctx) {
-
+        virtual_surface.init(ctx);
     }
 
     void update(Context& ctx) {
@@ -19,7 +24,9 @@ class UntitledGame : public Application{
     }
 
     void render(Context& ctx) {
-
+        virtual_surface.set(ctx);
+            ctx.renderer.draw_circle(200, 150, 20, RED);
+        virtual_surface.exit_and_render(ctx);
     }
 
     void finish() {
