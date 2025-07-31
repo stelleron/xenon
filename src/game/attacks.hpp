@@ -9,8 +9,8 @@ enum LookDir {
 };
 
 enum CharType {
-    PLAYER,
-    ENEMY
+    TypePlayer,
+    TypeEnemy
 };
 
 // Player's sword attack
