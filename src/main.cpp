@@ -20,6 +20,7 @@ class UntitledGame : public Application{
         config.width = WND_WIDTH;
         config.height = WND_HEIGHT;
         config.resizable = false;
+        config.vsync = false;
     }
 
     void init(Context& ctx) {
@@ -34,6 +35,9 @@ class UntitledGame : public Application{
     }
 
     void update(Context& ctx) {
+        if (ctx.keyboard.is_pressed(Key::Escape)) {
+            ctx.window.close();
+        }
         state_machine.update(ctx);
     }
 
