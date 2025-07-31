@@ -1,14 +1,12 @@
-#pragma once 
+#pragma once
 using namespace xenon;
-#include "states/base_state.hpp"
-#include "game/player.hpp"
 
-class PlayState : public BaseState {
+class Player {
     private:
-        Player player;
+
     public:
-        PlayState();
-        ~PlayState();
+        Player();
+        ~Player();
 
         void init(Context& ctx);
         void update(Context& ctx);

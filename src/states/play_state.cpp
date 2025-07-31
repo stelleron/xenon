@@ -13,14 +13,15 @@ PlayState::~PlayState() {
 }
 
 void PlayState::init(Context& ctx) {
+    player.init(ctx);
 }
 
 void PlayState::update(Context& ctx) {
-
+    player.update(ctx);
 }
 
 void PlayState::render(Context& ctx) {
-
+    player.render(ctx);
 }
 
 void PlayState::finish() {
