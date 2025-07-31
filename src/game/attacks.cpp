@@ -9,10 +9,10 @@ PlayerSwordAttack::PlayerSwordAttack() {
 void PlayerSwordAttack::start(LookDir dir, Vector2 p) {
     lifespan = 20;
     switch (dir) {
-        case LookDir::Up    : area = Rectangle(p.x - 12.5, p.y - 5, 25, 5); break;
-        case LookDir::Down  : area = Rectangle(p.x - 12.5, p.y, 25, 5); break;
-        case LookDir::Left  : area = Rectangle(p.x - 5, p.y - 12.5, 5, 25); break;
-        case LookDir::Right : area = Rectangle(p.x, p.y - 12.5, 5, 25); break;
+        case LookDir::Up    : area = Rectangle(p.x - PSwA_WIDTH/2, p.y - PSwA_HEIGHT/2, PSwA_WIDTH, PSwA_HEIGHT); break;
+        case LookDir::Down  : area = Rectangle(p.x - PSwA_WIDTH/2, p.y, PSwA_WIDTH, PSwA_HEIGHT); break;
+        case LookDir::Left  : area = Rectangle(p.x - PSwA_HEIGHT/2, p.y - PSwA_WIDTH/2, PSwA_HEIGHT, PSwA_WIDTH); break;
+        case LookDir::Right : area = Rectangle(p.x, p.y - PSwA_WIDTH/2, PSwA_HEIGHT, PSwA_WIDTH); break;
         default: break;
     }
 }

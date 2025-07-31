@@ -14,6 +14,9 @@ enum CharType {
 };
 
 // Player's sword attack
+#define PSwA_WIDTH 30
+#define PSwA_HEIGHT 12
+
 struct PlayerSwordAttack {
     Rectangle area;
     int lifespan;
